@@ -2,7 +2,7 @@ use std::time::Instant;
 use std::io::Error;
 use itertools::Itertools;
 
-use day1::*;
+use puzzle::*;
 
 
 // This two functions are basically the solution.
@@ -18,13 +18,12 @@ fn three_measurement(depths: &Vec<usize>) -> usize {
 
 
 fn main() -> Result<(), Error> {
-    // new and improved way to load input files, learned last year.
-    // Don't know if it is faster, but it is waaay shorter and more comprehensible
     
+    // get the inputfile into memory
+    let inputvec = readinput("input.txt"); 
+
     // start timing when the file is read in mem and we start to do stuff.
     let now = Instant::now();
-
-    let inputvec = readinput("input.txt"); 
 
     println!("Part One: larger measurements: {}", increases(&inputvec));
 
